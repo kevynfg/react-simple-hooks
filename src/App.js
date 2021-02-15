@@ -45,7 +45,12 @@ function App() {
     setEditing(false);
     console.log('Usuário atualizado: ', updatedUser);
     //passa pelos usuários buscando o id passado para dar match no usuario que queremos
-    setUsers(users.map((user) => (user.id === id ? updatedUser : user)));
+    setUsers(
+      users.map((user) => {
+        console.log('Usuário existente: ', user);
+        return user.id === id ? updatedUser : user;
+      })
+    );
   };
 
   return (
